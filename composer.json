@@ -1,0 +1,34 @@
+{
+    "name": "th3mouk/full-calendar-bundle",
+    "type": "symfony-bundle",
+    "description": "This bundle allows you to integrate the jQuery FullCalendar plugin into your Symfony2 application.",
+    "keywords": [
+        "calendar", "fullcalendar", "jquery calendar", "symfony", "bundle"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mike Yudin",
+            "email": "mikeyudin@gmail.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Jérémy Marodon",
+            "email": "marodon.jeremy@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "^2.3",
+        "friendsofsymfony/jsrouting-bundle": "^1.5",
+    },
+    "autoload": {
+        "psr-4": {
+            "ADesigns\\CalendarBundle\\": ""
+        }
+    }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+  }
+}
