@@ -1,0 +1,19 @@
+{
+  "name": "full-calendar-bundle",
+  "homepage": "https://github.com/Th3Mouk/FullCalendarBundle",
+  "authors": [
+    "Jérémy Marodon <marodon.jeremy@gmail.com>"
+  ],
+  "dependencies": {
+    "fullcalendar": "~2.4.0"
+  },
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
