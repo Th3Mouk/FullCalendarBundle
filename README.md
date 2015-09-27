@@ -27,7 +27,7 @@ public function registerBundles()
 {
     return array(
         // ...
-        new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+        new Th3Mouk\FullCalendarBundle\Th3MoukFullCalendarBundle(),
     );
 }
 ```
@@ -38,7 +38,7 @@ Register the routing in `app/config/routing.yml`:
 # app/config/routing.yml
 
 adesigns_calendar:
-  resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"    
+  resource: "@Th3MoukFullCalendarBundle/Resources/config/routing.xml"    
 ```
 
 Publish the assets:
@@ -63,7 +63,7 @@ Javascript:
 Then, in the template where you wish to display the calendar, add the following twig:
 
 ```
-{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+{% include 'Th3MoukFullCalendarBundle::calendar.html.twig' %}
 ```   
 
 Adding Events
@@ -80,8 +80,8 @@ Create an Event Listener class in your bundle:
 	
 namespace Acme\DemoBundle\EventListener;
 
-use ADesigns\CalendarBundle\Event\CalendarEvent;
-use ADesigns\CalendarBundle\Entity\EventEntity;
+use Th3Mouk\FullCalendarBundle\Event\CalendarEvent;
+use Th3Mouk\FullCalendarBundle\Entity\Event;
 use Doctrine\ORM\EntityManager;
 
 class CalendarEventListener
@@ -116,36 +116,36 @@ class CalendarEventListener
 			              ->getQuery()->getResult();
 
 	    // $companyEvents and $companyEvent in this example
-	    // represent entities from your database, NOT instances of EventEntity
+	    // represent entities from your database, NOT instances of Event
 	    // within this bundle.
 	    //
-	    // Create EventEntity instances and populate it's properties with data
+	    // Create Event instances and populate it's properties with data
 	    // from your own entities/database values.
 	    
 		foreach($companyEvents as $companyEvent) {
 
 		    // create an event with a start/end time, or an all day event
 		    if ($companyEvent->getAllDayEvent() === false) {
-		    	$eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
+		    	$event = new Event($companyEvent->getTitle(), $companyEvent->getStartDatetime(), $companyEvent->getEndDatetime());
 		    } else {
-		    	$eventEntity = new EventEntity($companyEvent->getTitle(), $companyEvent->getStartDatetime(), null, true);
+		    	$event = new Event($companyEvent->getTitle(), $companyEvent->getStartDatetime(), null, true);
 		    }
 
 		    //optional calendar event settings
-		    $eventEntity->setAllDay(true); // default is false, set to true if this is an all day event
-		    $eventEntity->setBgColor('#FF0000'); //set the background color of the event's label
-		    $eventEntity->setFgColor('#FFFFFF'); //set the foreground color of the event's label
-		    $eventEntity->setUrl('http://www.google.com'); // url to send user to when event label is clicked
-		    $eventEntity->setCssClass('my-custom-class'); // a custom class you may want to apply to event labels
+		    $event->setAllDay(true); // default is false, set to true if this is an all day event
+		    $event->setBgColor('#FF0000'); //set the background color of the event's label
+		    $event->setFgColor('#FFFFFF'); //set the foreground color of the event's label
+		    $event->setUrl('http://www.google.com'); // url to send user to when event label is clicked
+		    $event->setCssClass('my-custom-class'); // a custom class you may want to apply to event labels
 
 		    //finally, add the event to the CalendarEvent for displaying on the calendar
-		    $calendarEvent->addEvent($eventEntity);
+		    $calendarEvent->addEvent($event);
 		}
 	}
 }
 ```
 
-Additional properties and customization of each event on the calendar can be found in the Entity/EventEntity class.
+Additional properties and customization of each event on the calendar can be found in the Entity/Event class.
 
 Then, add the listener to your services:
 ``` xml
@@ -162,7 +162,7 @@ Then, add the listener to your services:
   </container>
 ```
 
-And that's it!  When the `ADesignsCalendarBundle::calendar.html.twig` template is rendered, any events within the current month/day/year will be pulled from your application.
+And that's it!  When the `Th3MoukFullCalendarBundle::calendar.html.twig` template is rendered, any events within the current month/day/year will be pulled from your application.
 
 
 Extending the Calendar Javascript

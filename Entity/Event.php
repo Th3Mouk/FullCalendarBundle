@@ -7,7 +7,7 @@ namespace Th3Mouk\FullCalendarBundle\Entity;
  * @author Mike Yudin <mikeyudin@gmail.com>
  */
 
-class EventEntity 
+class Event
 {
     /**
      * @var mixed Unique identifier of this event (optional).

@@ -26,7 +26,7 @@ class CalendarEventTest extends \PHPUnit_Framework_TestCase
         
         $eventTitle = "Test Title 1";
         
-        $eventEntityMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\EventEntity')
+        $eventMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\Event')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime))
             ->setMethods(null)
             ->getMock();   
@@ -36,12 +36,12 @@ class CalendarEventTest extends \PHPUnit_Framework_TestCase
             ->setMethods(null)
             ->getMock();
             
-        $calendarEventMock->addEvent($eventEntityMock);
+        $calendarEventMock->addEvent($eventMock);
          
         $this->assertCount(1, $calendarEventMock->getEvents());
         
         //test no duplicates
-        $calendarEventMock->addEvent($eventEntityMock);        
+        $calendarEventMock->addEvent($eventMock);        
         $this->assertCount(1, $calendarEventMock->getEvents());            
     }
 }

@@ -2,13 +2,14 @@
 
 namespace Th3Mouk\FullCalendarBundle\Event;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 
-use Th3Mouk\FullCalendarBundle\Entity\EventEntity;
+use Th3Mouk\FullCalendarBundle\Entity\Event as EventEntity;
 
 /**
- * Event used to store EventEntitys
+ * Event used to store Events
  * 
  * @author Mike Yudin <mikeyudin@gmail.com>
  */
@@ -29,13 +30,14 @@ class CalendarEvent extends Event
      * 
      * @param \DateTime $start Begin datetime to use
      * @param \DateTime $end End datetime to use
+     * @param Request|null $request
      */
     public function __construct(\DateTime $start, \DateTime $end, Request $request = null)
     {
         $this->startDatetime = $start;
         $this->endDatetime = $end;
         $this->request = $request;
-        $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->events = new ArrayCollection();
     }
 
     public function getEvents()

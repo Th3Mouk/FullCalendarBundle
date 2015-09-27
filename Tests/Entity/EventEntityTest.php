@@ -2,9 +2,9 @@
 
 namespace Th3Mouk\FullCalendarBundle\Tests\Entity;
 
-use Th3Mouk\FullCalendarBundle\Entity\EventEntity;
+use Th3Mouk\FullCalendarBundle\Entity\Event;
 
-class EventEntityTest extends \PHPUnit_Framework_TestCase
+class EventTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstructBasic()
     {
@@ -12,13 +12,13 @@ class EventEntityTest extends \PHPUnit_Framework_TestCase
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
         $eventTitle = "Test Title 1";
         
-        $eventEntityMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\EventEntity')
+        $eventMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\Event')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime))
             ->setMethods(null)
             ->getMock();   
 
         
-        $entityArray = $eventEntityMock->toArray();
+        $entityArray = $eventMock->toArray();
         
         $arrayCheck = array(
             'start' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 00:00:00')),
@@ -36,13 +36,13 @@ class EventEntityTest extends \PHPUnit_Framework_TestCase
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
         $eventTitle = "Test Title 1";
         
-        $eventEntityMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\EventEntity')
+        $eventMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\Event')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime, true))
             ->setMethods(null)
             ->getMock();   
 
         
-        $entityArray = $eventEntityMock->toArray();
+        $entityArray = $eventMock->toArray();
         
         $arrayCheck = array(
             'start' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 00:00:00')),
@@ -56,7 +56,7 @@ class EventEntityTest extends \PHPUnit_Framework_TestCase
 
     public function testNonStandardFields()
     {
-        $event = new EventEntity('Test', new \DateTime('2012-01-01 00:00:00'), new \DateTime('2012-01-01 01:00:00'));
+        $event = new Event('Test', new \DateTime('2012-01-01 00:00:00'), new \DateTime('2012-01-01 01:00:00'));
         $event->addField('description', 'Event descriptions');
 
         $expectedArray = array(
