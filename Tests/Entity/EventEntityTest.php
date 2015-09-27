@@ -1,8 +1,8 @@
 <?php
 
-namespace ADesigns\CalendarBundle\Tests\Entity;
+namespace Th3Mouk\FullCalendarBundle\Tests\Entity;
 
-use ADesigns\CalendarBundle\Entity\EventEntity;
+use Th3Mouk\FullCalendarBundle\Entity\EventEntity;
 
 class EventEntityTest extends \PHPUnit_Framework_TestCase
 {
@@ -12,7 +12,7 @@ class EventEntityTest extends \PHPUnit_Framework_TestCase
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
         $eventTitle = "Test Title 1";
         
-        $eventEntityMock = $this->getMockBuilder('ADesigns\CalendarBundle\Entity\EventEntity')
+        $eventEntityMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\EventEntity')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime))
             ->setMethods(null)
             ->getMock();   
@@ -36,7 +36,7 @@ class EventEntityTest extends \PHPUnit_Framework_TestCase
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
         $eventTitle = "Test Title 1";
         
-        $eventEntityMock = $this->getMockBuilder('ADesigns\CalendarBundle\Entity\EventEntity')
+        $eventEntityMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\EventEntity')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime, true))
             ->setMethods(null)
             ->getMock();   

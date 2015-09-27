@@ -1,6 +1,6 @@
 <?php
 
-namespace ADesigns\CalendarBundle\DependencyInjection;
+namespace Th3Mouk\FullCalendarBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('a_designs_calendar');
+        $treeBuilder->root('a_designs_calendar');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

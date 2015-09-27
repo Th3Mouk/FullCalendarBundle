@@ -1,5 +1,5 @@
 fullcalendar_loader:
     pattern: /fc-load-calendar-events
-    defaults: { _controller: ADesignsCalendarBundle:Calendar:loadCalendar }
+    defaults: { _controller: Th3MoukFullCalendarBundle:Calendar:loadCalendar }
     options:
         expose: true

@@ -1,5 +1,5 @@
 <?php
-namespace ADesigns\CalendarBundle\Entity;
+namespace Th3Mouk\FullCalendarBundle\Entity;
 
 /**
  * Class for holding a calendar event's details.

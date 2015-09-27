@@ -1,11 +1,11 @@
 <?php
 
-namespace ADesigns\CalendarBundle\Event;
+namespace Th3Mouk\FullCalendarBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 
-use ADesigns\CalendarBundle\Entity\EventEntity;
+use Th3Mouk\FullCalendarBundle\Entity\EventEntity;
 
 /**
  * Event used to store EventEntitys

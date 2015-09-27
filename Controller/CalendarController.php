@@ -1,11 +1,11 @@
 <?php
 
-namespace ADesigns\CalendarBundle\Controller;
+namespace Th3Mouk\FullCalendarBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use ADesigns\CalendarBundle\Event\CalendarEvent;
+use Th3Mouk\FullCalendarBundle\Event\CalendarEvent;
 
 class CalendarController extends Controller
 {
