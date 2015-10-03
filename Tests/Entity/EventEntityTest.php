@@ -4,53 +4,51 @@ namespace Th3Mouk\FullCalendarBundle\Tests\Entity;
 
 use Th3Mouk\FullCalendarBundle\Entity\Event;
 
-class EventTest extends \PHPUnit_Framework_TestCase
+class EventEntityTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstructBasic()
     {
         $beginDatetime = new \DateTime('2012-01-01 00:00:00');
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
-        $eventTitle = "Test Title 1";
-        
+        $eventTitle = 'Test Title 1';
+
         $eventMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\Event')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime))
             ->setMethods(null)
-            ->getMock();   
+            ->getMock();
 
-        
         $entityArray = $eventMock->toArray();
-        
+
         $arrayCheck = array(
             'start' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 00:00:00')),
             'end' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 02:00:00')),
-            'title' => "Test Title 1",
-            'allDay' => false
+            'title' => 'Test Title 1',
+            'allDay' => false,
         );
-        
+
         $this->assertEquals($entityArray, $arrayCheck);
     }
-    
+
     public function testConstructAllDay()
     {
         $beginDatetime = new \DateTime('2012-01-01 00:00:00');
         $endDatetime = new \DateTime('2012-01-01 02:00:00');
-        $eventTitle = "Test Title 1";
-        
+        $eventTitle = 'Test Title 1';
+
         $eventMock = $this->getMockBuilder('Th3Mouk\FullCalendarBundle\Entity\Event')
             ->setConstructorArgs(array($eventTitle, $beginDatetime, $endDatetime, true))
             ->setMethods(null)
-            ->getMock();   
+            ->getMock();
 
-        
         $entityArray = $eventMock->toArray();
-        
+
         $arrayCheck = array(
             'start' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 00:00:00')),
             'end' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 02:00:00')),
-            'title' => "Test Title 1",
-            'allDay' => true
+            'title' => 'Test Title 1',
+            'allDay' => true,
         );
-        
+
         $this->assertEquals($entityArray, $arrayCheck);
     }
 
@@ -64,7 +62,7 @@ class EventTest extends \PHPUnit_Framework_TestCase
             'start' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 00:00:00')),
             'end' => date("Y-m-d\TH:i:sP", strtotime('2012-01-01 01:00:00')),
             'allDay' => false,
-            'description' => 'Event descriptions'
+            'description' => 'Event descriptions',
         );
 
         $this->assertEquals($event->toArray(), $expectedArray);
