@@ -10,9 +10,7 @@ Installation
 
 Before installing, please note that this bundle has a dependency on the [FOSJsRouting](https://github.com/FriendsOfSymfony/FOSJsRoutingBundle) bundle to expose the calendar AJAX event loader route.  Please ensure that the FOSJsRouting bundle is installed and configured before continuing.
 
-### Through Composer (Symfony 2.1+):
-
-Add the following lines in your `composer.json` file:
+### Through Composer:
 
 ```sh
 composer require adesigns/calendar-bundle
@@ -37,8 +35,9 @@ Register the routing in `app/config/routing.yml`:
 ``` yml
 # app/config/routing.yml
 
-adesigns_calendar:
-  resource: "@Th3MoukFullCalendarBundle/Resources/config/routing.xml"    
+th3mouk_planning:
+    resource: "@Th3MoukFullCalendarBundle/Controller/"
+    type:     annotation
 ```
 
 Publish the assets:
@@ -52,13 +51,14 @@ Add the required stylesheet and javascripts to your layout:
 
 Stylesheet:    
 ```
-<link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
+<link rel="stylesheet" href="{{ asset('bundles/th3moukfullcalendar/css/fullcalendar/fullcalendar.min.css') }}" />
 ```    
 Javascript:
 ```
-<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/jquery/jquery-1.8.2.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/th3moukfullcalendar/js/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/th3moukfullcalendar/js/moment/moment-with-locales.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/th3moukfullcalendar/js/fullcalendar/fullcalendar.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('bundles/th3moukfullcalendar/js/calendar-settings.js') }}"></script>
 ```    
 Then, in the template where you wish to display the calendar, add the following twig:
 

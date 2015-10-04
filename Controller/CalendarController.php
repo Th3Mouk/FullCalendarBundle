@@ -2,6 +2,7 @@
 
 namespace Th3Mouk\FullCalendarBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Th3Mouk\FullCalendarBundle\Event\CalendarEvent;
@@ -14,6 +15,8 @@ class CalendarController extends Controller
      * @param Request $request
      *
      * @return Response
+     *
+     * @Route("/fc-load-events", name="fullcalendar_loader", options={"expose"=true})
      */
     public function loadCalendarAction(Request $request)
     {
